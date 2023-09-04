@@ -420,17 +420,21 @@ $root
 <span id="cb63-78"><a href="#cb63-78" aria-hidden="true" tabindex="-1"></a>    ranksHand <span class="ot">&lt;-</span> ranks[hand]</span>
 <span id="cb63-79"><a href="#cb63-79" aria-hidden="true" tabindex="-1"></a>    <span class="co">#get the handname of this combination of suits and ranks</span></span>
 <span id="cb63-80"><a href="#cb63-80" aria-hidden="true" tabindex="-1"></a>    handName <span class="ot">&lt;-</span> <span class="fu">getHandName</span>(suitsHand, ranksHand)</span>
-<span id="cb63-81"><a href="#cb63-81" aria-hidden="true" tabindex="-1"></a>    <span class="co">#create the dataframe</span></span>
+<span id="cb63-81"><a href="#cb63-81" aria-hidden="true" tabindex="-1"></a>    <span class="co">#create the result dataframe</span></span>
 <span id="cb63-82"><a href="#cb63-82" aria-hidden="true" tabindex="-1"></a>    hands[[i]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Suit =</span> suitsHand, <span class="at">Rank =</span> ranksHand, <span class="at">HandName =</span> handName)</span>
 <span id="cb63-83"><a href="#cb63-83" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb63-84"><a href="#cb63-84" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb63-85"><a href="#cb63-85" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Display the hands</span></span>
 <span id="cb63-86"><a href="#cb63-86" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>numPlayers) {</span>
-<span id="cb63-87"><a href="#cb63-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Player"</span>, i, <span class="st">"Hand:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb63-88"><a href="#cb63-88" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(hands[[i]])</span>
-<span id="cb63-89"><a href="#cb63-89" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb63-90"><a href="#cb63-90" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb63-91"><a href="#cb63-91" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-87"><a href="#cb63-87" aria-hidden="true" tabindex="-1"></a>    <span class="co">#print ith Player player's hand of card</span></span>
+<span id="cb63-88"><a href="#cb63-88" aria-hidden="true" tabindex="-1"></a>    <span class="co">#e.g Player 1 Hand:</span></span>
+<span id="cb63-89"><a href="#cb63-89" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Straight</span></span>
+<span id="cb63-90"><a href="#cb63-90" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
+<span id="cb63-91"><a href="#cb63-91" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Player"</span>, i, <span class="st">"Hand:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb63-92"><a href="#cb63-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(hands[[i]])</span>
+<span id="cb63-93"><a href="#cb63-93" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb63-94"><a href="#cb63-94" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb63-95"><a href="#cb63-95" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example of getHandName</span></span>

@@ -199,12 +199,16 @@ dealPokerRound <- function(numPlayers) {
     ranksHand <- ranks[hand]
     #get the handname of this combination of suits and ranks
     handName <- getHandName(suitsHand, ranksHand)
-    #create the dataframe
+    #create the result dataframe
     hands[[i]] <- data.frame(Suit = suitsHand, Rank = ranksHand, HandName = handName)
   }
   
   # Display the hands
   for (i in 1:numPlayers) {
+    #print ith Player player's hand of card
+    #e.g Player 1 Hand:
+    #Straight
+    #
     cat("Player", i, "Hand:\n")
     print(hands[[i]])
     cat("\n")
