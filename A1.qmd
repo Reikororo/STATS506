@@ -38,8 +38,9 @@ df2
 ```
 
 ```{r}
-#welch t-tests for class1 and class2
+#welch t-test for class1 and class2
 t.test(df[df$Class == 1, 4], df[df$Class == 2, 4])
+#calculate manually
 d <- mean(df[df$Class == 1, 4]) - mean(df[df$Class == 2, 4])
 s1 <- sqrt(var(df[df$Class == 1,4])/59)
 s2 <- sqrt(var(df[df$Class == 2,4])/71)
@@ -50,8 +51,9 @@ dof
 t
 2*(1-pt(t, dof))
 #p-value<0.05 We have sufficient evidence to conclude that the level of Ash differs across class1 and class2.
-#welch t-tests for class1 and class3
+#welch t-test for class1 and class3
 t.test(df[df$Class == 1, 4], df[df$Class == 3, 4])
+#calculate manually
 d <- mean(df[df$Class == 1, 4])-mean(df[df$Class == 3, 4])
 s1 <- sqrt(var(df[df$Class == 1,4])/59)
 s2 <- sqrt(var(df[df$Class == 3,4])/48)
@@ -62,7 +64,9 @@ dof
 t
 2*(1-pt(t, dof))
 #p-value>0.05 We don't have sufficient evidence to conclude that the level of Ash differs across class1 and class3.
+#welch t-test for class2 and class3
 t.test(df[df$Class == 2, 4],df[df$Class == 3, 4])
+#calculate manually
 d <- mean(df[df$Class == 2,4])-mean(df[df$Class == 3,4])
 s1 <- sqrt(var(df[df$Class == 2,4])/71)
 s2 <- sqrt(var(df[df$Class == 3,4])/48)
