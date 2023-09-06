@@ -8,8 +8,11 @@ editor: visual
 #Import the data into a data.frame in R 
 df <- read.table('/Users/songleshan/Desktop/stats506/wine/wine.data', sep = ",")
 #Use the information in the “wine.names” file to give appropriate column names.
-names(df)<-c('Class','Alcohol','Malic acid','Ash','Alcalinity of ash','Magnesium','Total phenols','Flavanoids','Nonflavanoid phenols','Proanthocyanins','Color intensity','Hue',
-     'OD280/OD315 of diluted wines','Proline')          
+names(df)<-c('Class', 'Alcohol', 'Malic acid', 'Ash',
+             'Alcalinity of ash', 'Magnesium', 'Total phenols',
+             'Flavanoids', 'Nonflavanoid phenols', 'Proanthocyanins',
+             'Color intensity', 'Hue',
+             'OD280/OD315 of diluted wines', 'Proline')          
 
 ```
 
@@ -22,8 +25,8 @@ df$Class[which.min(df$Alcohol)]#The wine with the lowest alcohol content belongs
 ```{r}
 sum(df$Magnesium > 114)#26 of these wines have higher levels of magnesium than that.
 sum((df$Magnesium > 114) & (df$Class == 1))#15 of class1 wines have higher levels of magnesium than that.
-sum((df$Magnesium > 114)&(df$Class == 2))#6 of class2 wines have higher levels of magnesium than that.
-sum((df$Magnesium > 114)&(df$Class == 3))#5 of class3 wines have higher levels of magnesium than that.
+sum((df$Magnesium > 114) & (df$Class == 2))#6 of class2 wines have higher levels of magnesium than that.
+sum((df$Magnesium > 114) & (df$Class == 3))#5 of class3 wines have higher levels of magnesium than that.
 ```
 
 ```{r}
@@ -41,14 +44,19 @@ df2
 #welch t-test for class1 and class2
 t.test(df[df$Class == 1, 4], df[df$Class == 2, 4])
 #calculate manually
+#difference of mean
 d <- mean(df[df$Class == 1, 4]) - mean(df[df$Class == 2, 4])
 s1 <- sqrt(var(df[df$Class == 1,4])/59)
 s2 <- sqrt(var(df[df$Class == 2,4])/71)
+#calculate pooled sd
 s <- sqrt(s1^2+s2^2)
+#calculate adjusted degrees of freedom
 dof <- (s1^2/59+s2^2/71)^2/(s1^4/(59*59*58)+s2^4/(71*71*70))
+#calculate t
 t <- d/sqrt(s1^2+s2^2)
 dof
 t
+#two-tail p value
 2*(1-pt(t, dof))
 #p-value<0.05 We have sufficient evidence to conclude that the level of Ash differs across class1 and class2.
 #welch t-test for class1 and class3
@@ -84,10 +92,10 @@ isPerfectPower <- function(n, p) {
   r <- n^(1/p)
   if (all.equal(round(r), r) == TRUE) {
     l <- list('isPerfectPower' = TRUE, 'root' = r)
-    return (l)
-  }else {
+    return(l)
+  } else {
     l <- list('isPerfectPower' = FALSE)
-    return (l)
+    return(l)
   }
 }
 
@@ -106,8 +114,8 @@ findRootPower <- function(int) {
     } else break
   }
   if (i >= 1001) {
-    return ('this int is not the perfect power for power<=1000')
-  }else return (paste0(int,'=',r,'^',i))
+    return('this int is not the perfect power for power<=1000')
+  } else return(paste0(int,'=',r,'^',i))
 }
 
 findRootPower(1000)
@@ -275,22 +283,22 @@ print(handName)
 
 #Examples of dealPokerRound
 set.seed(1)
-t1<-dealPokerRound(4)
+t1 <- dealPokerRound(4)
 set.seed(2)
-t2<-dealPokerRound(4)
+t2 <- dealPokerRound(4)
 set.seed(3)
-t3<-dealPokerRound(4)
+t3 <- dealPokerRound(4)
 set.seed(4)
-t4<-dealPokerRound(4)
-t5<-dealPokerRound(10)
+t4 <- dealPokerRound(4)
+t5 <- dealPokerRound(10)
 
 ```
 
 **See if the code runs without modification in R. If so, demonstrate it with a range of inputs. If not, fix it and explain what you fixed. (If you identify that the code is massively broken, try re-generating the response.) At this point we only care if the code runs without errors for a variety on inputs; we'll make sure it's correct below.**
 
-The code runs with only a small error that isStraight \<- diff(sort(unique(ranks))) == 1 there shows the warning:*I*
+The code runs with only a small error that isStraight \<- diff(sort(unique(ranks))) == 1 there shows the warning:
 
-*n if (isStraight) { :*
+*if (isStraight) { :*
 
 *the condition has length \> 1 and only the first element will be used*
 
