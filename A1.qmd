@@ -1,6 +1,9 @@
 ---
 title: "STATS506A1 Leshan Song"
-format: html
+format: 
+    html:
+         embed-resources: true
+   
 editor: visual
 ---
 
